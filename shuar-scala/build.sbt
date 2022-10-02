@@ -9,7 +9,7 @@ lazy val root = project
     scalaVersion := scala3Version,
 
     libraryDependencies ++= Seq(
-      "org.junit.jupiter" % "junit-jupiter-api" % "5.9.1" % Test,
-      "com.h2database" % "h2" % "2.1.214" % Test,
+      "org.scalameta" %% "munit" % "0.7.29" % Test,
+      "com.h2database" % "h2" % "2.1.214" % Test
     )
   )
