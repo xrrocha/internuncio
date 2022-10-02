@@ -15,7 +15,7 @@ import static shuar.util.Utils.*;
 
 public class ShuarScriptIT {
     @Test
-    public void distillerScriptWorks() {
+    public void shuarScriptWorks() {
         class MyScript extends ShuarScript<ResultSet, String, URI>
                 implements SqlDelimitedRecordBuilder, FileReducerBuilder {
             {
