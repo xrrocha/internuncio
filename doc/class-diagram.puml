@@ -1,0 +1,24 @@
+@startuml
+interface Source<I> {
+    open(): Stream<I>
+}
+interface Mapper<I, O> {
+    map(item: I): O
+}
+interface Reducer<O, R> {
+    reduce(items: Stream<O>): R
+}
+class Shuar<I, O, R> {
+    mapReduce(): R
+}
+Shuar --> Source
+Shuar --> Mapper
+Shuar --> Reducer
+note top of Shuar
+public R mapReduce() {
+    final var incomingItems = source.open();
+    final var outgoingItems = incomingItems.map(mapper::map);
+    return reducer.reduce(outgoingItems);
+}
+end note
+@enduml
