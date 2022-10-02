@@ -5,7 +5,7 @@ import shuar.Shuar.close
 import scala.util.Try
 
 trait Source[I]:
-  def open(): LazyList[I]
+  def open(): Iterable[I]
 end Source
 
 trait Mapper[I, O]:
@@ -13,7 +13,7 @@ trait Mapper[I, O]:
 end Mapper
 
 trait Reducer[O, R]:
-  def reduce(items: LazyList[O]): R
+  def reduce(items: Iterable[O]): R
 end Reducer
 
 trait Shuar[I, O, R](source: Source[I], mapper: Mapper[I, O], reducer: Reducer[O, R]):
